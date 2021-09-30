@@ -5,9 +5,12 @@ services:
   traefik:
     container_name: traefik
     image: traefik:1.7.12-alpine
-    command: --api --docker --docker.exposedbydefault=false
     ports:
-      - "85:85"
-      - "8085:8080"
+      - "8080:80"
+      - "80:80"
+    labels:
+      - traefik.enabled=true
+      - traefik.port=8080
+      - traefik.backend=traefik
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
