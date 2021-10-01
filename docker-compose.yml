@@ -3,15 +3,15 @@ version: '3.4'
 services:
 
   traefik:
-    container_name: traefik
+    container_name: traefik9
     image: traefik:1.7.12-alpine
     ports:
-      - "80:80"
+      - "89:80"
     labels:
-      - traefik.enabled=true
-      - traefik.port=8080
-      - traefik.frontend.rule=Host:traefik.${DOMAIN}
-      - traefik.backend=traefik
+      - traefik9.enabled=true
+      - traefik9.port=8089
+      - traefik9.frontend.rule=Host:traefik.${DOMAIN}
+      - traefik9.backend=traefik
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
